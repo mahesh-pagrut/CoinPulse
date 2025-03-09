@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@800&family=Noto+Sans:ital,wght@0,392;1,392&family=Outfit:wght@100..900&display=swap');
+
 
 *{
   padding:0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
 }
 
 a{

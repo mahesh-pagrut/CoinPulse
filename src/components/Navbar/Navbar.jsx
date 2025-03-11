@@ -9,8 +9,26 @@ import { CoinContext } from '../../context/CoinContext'
 const Navbar = () => {
     const {setCurrency} = useContext(CoinContext)
 
-    const currencyHandler =()=>{
-        
+    const currencyHandler =(event)=>{
+        switch(event.target.value){
+            case "usd" : {
+                setCurrency({name: "usd" , symbol: "$"})
+                break;
+            }
+            case "eur" : {
+                setCurrency({name: "eur" , symbol: "€"})
+                break;
+            }
+            case "inr" : {
+                setCurrency({name: "inr" , symbol: "₹"})
+                break;
+            }
+            default : {
+                setCurrency({name: "usd" , symbol: "$"})
+                break;
+            }
+        }
+
     }
 
   return (
@@ -23,7 +41,7 @@ const Navbar = () => {
             <li>Blogs</li>
         </ul>
         <div className="nav-right">
-            <select>
+            <select onChange={currencyHandler}>
                 <option value="USD">USD</option>
                 <option value="EURO">EURO</option>
                 <option value="INR">INR</option>

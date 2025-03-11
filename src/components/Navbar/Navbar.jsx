@@ -3,9 +3,16 @@ import React from 'react'
 import './Navbar.css'
 import logo from "../../assets/logo.png"
 import arrow from "../../assets/arrow_icon.png"
-
+import { useContext } from 'react'
+import { CoinContext } from '../../context/CoinContext'
 
 const Navbar = () => {
+    const {setCurrency} = useContext(CoinContext)
+
+    const currencyHandler =()=>{
+        
+    }
+
   return (
     <div className='navbar'>
         <img src={logo}  alt='logo-on-navbar' className='logo'/>

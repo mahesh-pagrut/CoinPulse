@@ -68,11 +68,19 @@
 
 .table-layout{
     display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1.5fr;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr;
     padding: 15px 20px;
     align-items: center;
     border-bottom: 1px solid #3c3c3c;
 }
+
+
+.market-cap{
+    text-align: right;
+}
+
+
+
 
 
 

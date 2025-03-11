@@ -3,8 +3,8 @@ import "./Footer.css"
 
 const Footer = () => {
   return (
-    <div>
-        <p>Copyright @ 2024, CoinPulse - Get the pulse of the crypto market - All rights Reserved</p>
+    <div className="footer">
+        <p>Copyright @ 2024 - CoinPulse - Get the pulse of the crypto market - All rights Reserved</p>
     </div>
   )
 }

@@ -7,6 +7,7 @@ export const Home = () => {
 
     const {allCoin, currency} = useContext(CoinContext);
     const [displayCoin, setDisplayCoin] = useState([]);
+    const [input, setInput] = useState("")
 
     useEffect(() =>{
         setDisplayCoin(allCoin)

@@ -9,6 +9,21 @@ export const Home = () => {
     const [displayCoin, setDisplayCoin] = useState([]);
     const [input, setInput] = useState("")
 
+    const inputHandler = (event) => {
+        setInput(event.target.value)
+        if(event.target.value === ""){
+            setDisplayCoin(allCoin)
+        }
+    }
+
+    const searchHandler = async (event) => {
+        event.preventDefault();
+        const coins = await allCoin.filter((item) => {
+            return item.name.toLowerCase().includes(input.toLowerCase())
+        })
+        setDisplayCoin(coins);
+    }
+
     useEffect(() =>{
         setDisplayCoin(allCoin)
     },[allCoin])
@@ -20,8 +35,8 @@ export const Home = () => {
             <h1>Largest <br/>Crypto Marketplace</h1>
             <p>Welcome to the world's largest cryptocurrency marketplace. Sign up to explore more about cryptos.</p>
 
-            <form>
-                <input type="text" placeholder='Search crypto...'/>
+            <form onSubmit={searchHandler}>
+                <input onChange={inputHandler} value={input} type="text" placeholder='Search crypto...' required/>
                 <button type='submit'>Search</button>
             </form>
         </div>
@@ -31,10 +46,10 @@ export const Home = () => {
                 <p>Coins</p>
                 <p>Price</p>
                 <p style={{textAlign:"center"}}>24H Change</p>
-                <p className='market-cap'>Market Cap</p>
+                <p  style={{textAlign:"center", marginLeft:"60px"}} className='market-cap'>Market Cap</p>
             </div>
             {
-                displayCoin.slice(0,10).map((item, index) =>(
+                displayCoin.slice(0,15).map((item, index) =>(
                     <div className='table-layout' key={index}>
                         <p>{item.market_cap_rank}</p>
                         <div>

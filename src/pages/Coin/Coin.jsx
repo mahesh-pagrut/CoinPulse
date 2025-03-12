@@ -39,6 +39,7 @@ const Coin = () => {
 
     useEffect(() => {
         fetchCoinData();
+        fetchHistoricalData();
     }, [currency])
 
     if(coinData && historicalData){
@@ -48,7 +49,7 @@ const Coin = () => {
                   <img src={coinData.image.large} alt="coin-image" />
                   <p><b>{coinData.name} ({coinData.symbol.toUpperCase()})</b></p>
               </div>
-              <div>
+              <div className='coin-chart'>
                 <LineChart historicalData={historicalData}/>
               </div>
           </div>

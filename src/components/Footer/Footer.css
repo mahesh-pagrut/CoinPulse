@@ -1,9 +1,54 @@
 
-.footer{
+
+
+/* Footer Section */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     margin: auto;
     max-width: 80%;
     border-top: 1px solid #989898;
     padding: 15px 0px;
     font-size: 13px;
+}
+
+/* Developer Info */
+.developer-info {
+    margin-top: 8px;
+    opacity: 0.5; /* Low opacity */
+    font-size: 13px;
+}
+
+/* Social Media Icons */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.social-icon {
+    font-size: 22px;
+    color: #ffffff;
+    transition: transform 0.3s ease-in-out, color 0.3s;
+}
+
+/* Instagram Icon */
+.social-icon.instagram:hover {
+    color: #E4405F;
+    transform: scale(1.2);
+}
+
+/* LinkedIn Icon */
+.social-icon.linkedin:hover {
+    color: #0077B5;
+    transform: scale(1.2);
+}
+
+/* Portfolio Icon */
+.social-icon.portfolio:hover {
+    color: #00ffea;
+    transform: scale(1.2);
 }

@@ -1,10 +1,19 @@
+/* Global Styling */
+body {
+    background: linear-gradient(135deg, #1e1e2f, #12121f);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-
+/* Home Section */
 .home {
     padding: 0px 10px;
     padding-bottom: 100px;
 }
 
+/* Hero Section */
 .hero {
     max-width: 600px;
     margin: 80px auto;
@@ -15,120 +24,143 @@
     gap: 30px;
 }
 
-.hero h1{
+.hero h1 {
     font-size: max(4vw, 36px);
+    color: #f8f8f8;
 }
 
-.hero p{
+.hero p {
     width: 75%;
-    color: #e3e3e3;
-    line-height: 1.5;
+    color: #bfbfbf;
+    line-height: 1.6;
 }
 
+/* Search Box */
 .hero form {
-    padding: 8px;
+    padding: 10px;
     width: 80%;
-    background-color: white;
-    border-radius: 5px;
-    font-size:20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-size: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.hero input{
+.hero input {
     flex: 1;
     font-size: 16px;
     outline: none;
     border: none;
     padding-left: 10px;
-
+    background: transparent;
+    color: #ffffff;
 }
 
+.hero input::placeholder {
+    color: #bfbfbf;
+}
+
+/* Stylish Button */
 .hero button {
     border: none;
-    background: #7927ff;
+    background: linear-gradient(135deg, #ff8c00, #ff2e63);
     color: white;
     font-size: 16px;
     padding: 10px 30px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
+.hero button:hover {
+    background: linear-gradient(135deg, #ff2e63, #ff8c00);
+    transform: scale(1.05);
+}
 
-.crypto-table{
+/* Crypto Table */
+.crypto-table {
     max-width: 800px;
     margin: auto;
-    background: linear-gradient(rgba(84,3,255,0.15), rgba(105, 2,153,0.15));
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-
-
-.table-layout{
+/* Table Layout */
+.table-layout {
     display: grid;
     grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr;
     padding: 15px 20px;
     align-items: center;
     border-bottom: 1px solid #3c3c3c;
+    transition: 0.3s;
 }
 
+.table-layout:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
 
-.market-cap{
+/* Market Cap Alignment */
+.market-cap {
     text-align: right;
 }
 
-.table-layout:last-child{
+/* Remove Border from Last Row */
+.table-layout:last-child {
     border: none;
 }
 
-.table-layout div{
+/* Table Rows */
+.table-layout div {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.table-layout div img{
+/* Crypto Logo */
+.table-layout div img {
     width: 35px;
 }
 
-.table-layout .green{
-    color: #00D515;
+/* Green & Red Price Changes */
+.table-layout .green {
+    color: #00ff7f;
     text-align: center;
+    font-weight: bold;
 }
 
-.table-layout .red{
+.table-layout .red {
     color: #ff4646;
     text-align: center;
+    font-weight: bold;
 }
 
-@media (max-width: 768px){
-    .table-layout{
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .table-layout {
         grid-template-columns: 0.5fr 3fr 1fr 1fr;
     }
 
-    .market-cap{
+    .market-cap {
         display: none;
     }
-    
 }
 
-@media (max-width: 500px){
-    .table-layout div img{
+@media (max-width: 500px) {
+    .table-layout div img {
         width: 25px;
     }
-    .table-layout{
+
+    .table-layout {
         font-size: 13px;
     }
-    .hero form input{
+
+    .hero form input {
         width: 100px;
     }
 }
-
-
-
-
-
-
-

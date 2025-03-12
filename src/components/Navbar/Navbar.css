@@ -1,89 +1,139 @@
-
-
-.navbar{
+/* Navbar */
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 10%;
-    color: #ddd;
-    border-bottom:2px solid #3c3c3c;
-
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 }
 
-.navbar .logo{
-    width: max(12vw, 120px)
-
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+    transition: 0.3s ease-in-out;
 }
 
-.navbar ul{
-    display:flex;
+/* Crypto Icon */
+.crypto-icon {
+    font-size: 38px;
+    color: white;
+}
+
+/* Navbar Links */
+.navbar ul {
+    display: flex;
     gap: 40px;
     list-style: none;
 }
 
-.navbar li{
+.navbar li {
     cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    color: #e0e0e0;
+    transition: 0.3s ease-in-out;
+    position: relative;
 }
 
-.nav-right{
+/* Neon Hover Effect */
+/* .navbar li:hover {
+    color: #ff8c00;
+    text-shadow: 0px 0px 8px rgba(255, 140, 0, 0.8);
+} */
+
+/* Underline Animation */
+.navbar li::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #ff8c00;
+    left: 50%;
+    bottom: -5px;
+    transition: 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.navbar li:hover::after {
+    width: 100%;
+}
+
+/* Right Section */
+.nav-right {
     display: flex;
     align-items: center;
-    gap: max(1vw, 12px)
+    gap: max(1vw, 12px);
 }
 
-.navbar select{
-    padding: 5px 8px;
+/* Dropdown */
+.navbar select {
+    padding: 5px 10px;
     border-radius: 6px;
-    border: 2px solid white;
+    border: 2px solid rgba(255, 255, 255, 0.4);
     background: transparent;
     color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.navbar option{
-    background-color: #09005c;
+/* Dropdown Hover */
+.navbar select:hover {
+    border-color: #ff8c00;
+}
+
+/* Dropdown Options */
+.navbar option {
+    background-color: #12121f;
     color: white;
 }
 
+/* Button */
 .navbar button {
     display: flex;
     align-items: center;
-    gap:10px;
+    gap: 10px;
     padding: 10px 25px;
     border-radius: 20px;
     font-size: 15px;
     font-weight: 500;
-    color: #393939;
-    background: white;
+    color: #ffffff;
+    /* background: linear-gradient(135deg, #ff2e63, #ff8c00); */
+    background: linear-gradient(135deg, #ff8c00, #ff2e63);
     border: none;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+    /* box-shadow: 0px 0px 10px rgba(255, 140, 0, 0.6); */
 }
 
-.navbar button img{
+/* Button Hover */
+.navbar button:hover {
+    background: linear-gradient(135deg, #ff2e63, #ff8c00);
+    transform: scale(1.05);
+}
+
+/* Button Icon */
+.navbar button img {
     width: 13px;
 }
 
-@media (max-width: 900px){
-    .navbar{
-        padding:20px 8%;
+/* Responsive Design */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 20px 8%;
     }
 
-    .navbar button{
+    .navbar button {
         gap: 8px;
         padding: 8px 18px;
-        font-size: 14px;
+ 
     }
 }
-
-@media (max-width: 768px){
-    .navbar{
-        padding:20px 5%;
-    }
-
-    .navbar ul{
-        display: none;
-    }
-    .navbar button img{
-        width: 12px;
-    }
-}
-

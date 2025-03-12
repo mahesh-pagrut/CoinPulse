@@ -1,61 +1,49 @@
-
-import React from 'react'
-import './Navbar.css'
-import logo from "../../assets/logo.png"
-import arrow from "../../assets/arrow_icon.png"
-import { useContext } from 'react'
-import {Link} from 'react-router-dom'
-import { CoinContext } from '../../context/CoinContext'
-
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { CoinContext } from '../../context/CoinContext';
+import { GiCrystalGrowth } from "react-icons/gi";
+import './Navbar.css';
 
 const Navbar = () => {
-    const {setCurrency} = useContext(CoinContext)
+    const { setCurrency } = useContext(CoinContext);
 
-    const currencyHandler =(event)=>{
-        switch(event.target.value){
-            case "usd" : {
-                setCurrency({name: "usd" , symbol: "$"})
-                break;
-            }
-            case "eur" : {
-                setCurrency({name: "eur" , symbol: "€"})
-                break;
-            }
-            case "inr" : {
-                setCurrency({name: "inr" , symbol: "₹"})
-                break;
-            }
-            default : {
-                setCurrency({name: "usd" , symbol: "$"})
-                break;
-            }
-        }
+    const currencyHandler = (event) => {
+        const selectedCurrency = event.target.value;
+        const currencyMap = {
+            usd: { name: "usd", symbol: "$" },
+            eur: { name: "eur", symbol: "€" },
+            inr: { name: "inr", symbol: "₹" }
+        };
+        setCurrency(currencyMap[selectedCurrency] || currencyMap["usd"]);
+    };
 
-    }
-
-  return (
-    <div className='navbar'>
-        <Link to={'/'}>
-            <img src={logo}  alt='logo-on-navbar' className='logo'/>
-        </Link>
-        <ul>
-            <Link to={'/'}>
-                <li>Home</li>
+    return (
+        <div className='navbar'>
+            {/* Logo Name with Icon */}
+            <Link to={'/'} className="brand">
+            <GiCrystalGrowth className="crypto-icon" />
+                <span>CoinPulse</span>
             </Link>
-            <li>Features</li>
-            <li>Pricing</li>
-            <li>Blogs</li>
-        </ul>
-        <div className="nav-right">
-            <select onChange={currencyHandler}>
-                <option value="usd">USD</option>
-                <option value="eur">EURO</option>
-                <option value="inr">INR</option>
-            </select>
-            <button>Sign Up <img src={arrow} alt="arrow-icon"/></button>
-        </div>
-    </div>
-  )
-}
 
-export default Navbar
+            {/* Navbar Links */}
+            <ul>
+                <Link to={'/'}><li>Home</li></Link>
+                <li>Features</li>
+                <li>Pricing</li>
+                <li>Blogs</li>
+            </ul>
+
+            {/* Currency & Signup */}
+            <div className="nav-right">
+                <select onChange={currencyHandler}>
+                    <option value="usd">USD</option>
+                    <option value="eur">EURO</option>
+                    <option value="inr">INR</option>
+                </select>
+                <button>Sign Up</button>
+            </div>
+        </div>
+    );
+};
+
+export default Navbar;

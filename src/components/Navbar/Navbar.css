@@ -10,6 +10,7 @@
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 }
 
+/* Brand Logo & Name */
 .brand {
     display: flex;
     align-items: center;
@@ -42,12 +43,6 @@
     transition: 0.3s ease-in-out;
     position: relative;
 }
-
-/* Neon Hover Effect */
-/* .navbar li:hover {
-    color: #ff8c00;
-    text-shadow: 0px 0px 8px rgba(255, 140, 0, 0.8);
-} */
 
 /* Underline Animation */
 .navbar li::after {
@@ -85,12 +80,10 @@
     transition: 0.3s;
 }
 
-/* Dropdown Hover */
 .navbar select:hover {
     border-color: #ff8c00;
 }
 
-/* Dropdown Options */
 .navbar option {
     background-color: #12121f;
     color: white;
@@ -106,34 +99,87 @@
     font-size: 15px;
     font-weight: 500;
     color: #ffffff;
-    /* background: linear-gradient(135deg, #ff2e63, #ff8c00); */
     background: linear-gradient(135deg, #ff8c00, #ff2e63);
     border: none;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    /* box-shadow: 0px 0px 10px rgba(255, 140, 0, 0.6); */
 }
 
-/* Button Hover */
 .navbar button:hover {
     background: linear-gradient(135deg, #ff2e63, #ff8c00);
     transform: scale(1.05);
 }
 
-/* Button Icon */
-.navbar button img {
-    width: 13px;
+/* Responsive Design */
+
+/* Large Screens (Desktops) */
+@media (min-width: 1200px) {
+    .navbar {
+        padding: 20px 12%;
+    }
+
+    .navbar ul {
+        gap: 50px;
+    }
+
+    .navbar button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
 }
 
-/* Responsive Design */
+/* Tablets (Medium Screens) */
 @media (max-width: 900px) {
     .navbar {
         padding: 20px 8%;
     }
 
+    .navbar ul {
+        gap: 30px;
+    }
+
     .navbar button {
-        gap: 8px;
         padding: 8px 18px;
- 
+    }
+}
+
+/* Small Screens (Mobile) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .navbar ul {
+        display: none; /* Hide nav links */
+    }
+
+    .nav-right {
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .navbar button {
+        font-size: 14px;
+        padding: 6px 15px;
+    }
+}
+
+/* Mobile with Hamburger Menu */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 10px 5%;
+    }
+
+    .brand {
+        font-size: 18px;
+    }
+
+    .crypto-icon {
+        font-size: 30px;
+    }
+
+    .navbar button {
+        font-size: 13px;
+        padding: 5px 12px;
     }
 }

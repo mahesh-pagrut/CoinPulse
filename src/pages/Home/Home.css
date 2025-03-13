@@ -67,11 +67,11 @@ body {
 /* Stylish Button */
 .hero button {
     border: none;
-    /* background: linear-gradient(135deg, #00eaff, #00ffa3, #e1c1ff, #d400ff); */
-    background: linear-gradient(135deg, #ff8c00, #ff2e63);
-    color: #ffffff;
+    background: linear-gradient(135deg, #00eaff, #00ffa3, #e1c1ff, #d400ff);
+    /* background: linear-gradient(135deg, #ff8c00, #ff2e63); */
+    color: #12121f;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     padding: 10px 30px;
     border-radius: 5px;
     cursor: pointer;
@@ -79,8 +79,8 @@ body {
 }
 
 .hero button:hover {
-    /* background: linear-gradient(135deg, #d400ff, #e1c1ff, #00ffa3, #00eaff); */
-     background: linear-gradient(135deg, #ff2e63, #ff8c00);
+    background: linear-gradient(135deg, #d400ff, #e1c1ff, #00ffa3, #00eaff);
+     /* background: linear-gradient(135deg, #ff2e63, #ff8c00); */
     transform: scale(1.01);
 }
 

@@ -18,7 +18,7 @@
     text-decoration: none;
     font-size: 28px;
     font-weight: 600;
-    background: linear-gradient(135deg, #ffffff, #00ffee, #ffffff, #ffffff);
+    background: linear-gradient(135deg, #00eaff, #00ffee, #f7eeff, #fb1aff);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent; /* Makes text take gradient color */
@@ -103,17 +103,17 @@
     border-radius: 20px;
     font-size: 15px;
     font-weight: 500;
-    color: white;
-    background: linear-gradient(135deg, #ff8c00, #ff2e63);
-    /* background: linear-gradient(135deg, #00eaff, #00ffa3, #e1c1ff, #d400ff); */
+    color: #12121f;
+    /* background: linear-gradient(135deg, #ff8c00, #ff2e63); */
+    background: linear-gradient(135deg, #00eaff, #00ffa3, #e1c1ff, #d400ff);
     border: none;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
 
 .navbar button:hover {
-    background: linear-gradient(135deg, #fd3869, #ff8c00);
-    /* background: linear-gradient(135deg, #d400ff, #e1c1ff, #00ffa3, #00eaff); */
+    /* background: linear-gradient(135deg, #fd3869, #ff8c00); */
+    background: linear-gradient(135deg, #d400ff, #e1c1ff, #00ffa3, #00eaff);
     transform: scale(1.05);
 }
 

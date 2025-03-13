@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { CoinContext } from '../../context/CoinContext';
 import { GiCrystalGrowth } from "react-icons/gi";
 import './Navbar.css';
+import logo from '../../assets/logo.png';
 
 const Navbar = () => {
     const { setCurrency } = useContext(CoinContext);
@@ -21,7 +22,7 @@ const Navbar = () => {
         <div className='navbar'>
             {/* Logo Name with Icon */}
             <Link to={'/'} className="brand">
-            <GiCrystalGrowth className="crypto-icon" />
+            <img src={logo} alt="CoinPulse Logo" className="logo" />
                 <span>CoinPulse</span>
             </Link>
 

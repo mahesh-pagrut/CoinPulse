@@ -1,5 +1,5 @@
 # CoinPulse - Real-Time Crypto Tracker
-# Get the pulse of the crypto market with CoinPulse!
+## Get the pulse of the crypto market with CoinPulse!
 
 ## Introduction
 **CoinPulse** is a sleek and interactive cryptocurrency tracking app built with **React.js, Vite, and Context API.** It provides real-time market data, historical trends, and price insights using the **CoinGecko API**. With a futuristic dark theme, interactive charts, and currency conversion, CoinPulse is designed to keep users informed about the ever-changing crypto landscape.
@@ -17,25 +17,24 @@
 
 ## 🛠 Technology Stack
 ### Framework & Libraries
-- **Next.js** - Full-stack React framework
-- **Tanstack Query** - Data fetching & caching
-- **Cloudinary** - Image & video storage and optimization
+- **React.js** – Component-based UI framework.
+- **Vite** – Lightning-fast build tool for optimized performance.
+- **Context API** – State management for global currency selection.
 
 ### 📌 Languages & Styling
-- **JavaScript & TypeScript**
-- **Tailwind CSS** - Utility-first styling
+- **JavaScript (ES6) – Core programming language.**
+- **CSS (Custom Styling)** – Glassmorphism, dark mode, and responsive UI.
+- **React Icons** – Crypto-inspired icons for better user experience.
 
 ### 📦 Key Dependencies
-- `@tanstack/react-query` - Data fetching & caching
-- `next-cloudinary` - Cloudinary integration
-- `lucide-react` - Icon library
-- `clsx, tailwind-merge, tailwindcss-animate` - Styling utilities
-- Radix UI components for dialogs, dropdowns, tabs, and checkboxes
+- `react-google-charts` - Charting library for data visualization.
+- `react-icons` - Modern icons for UI elements.
+- `react-router-dom` - Navigation and routing.
 
-### ⚙ Development Tools
-- **ESLint** - Linting & code quality
-- **TypeScript** - Static typing
-- **PostCSS & Autoprefixer** - CSS processing
+
+### ⚙ API Integration
+- **CoinGecko API** -  Fetches real-time and historical crypto market data.
+- **API Key Used** - CoinGecko Free API (No authentication required)
 
 ---
 
@@ -49,28 +48,21 @@ Ensure you have the following installed:
 ### 📂 Installation & Setup
 #### 1️⃣ Clone the repository
 ```sh
-git clone https://github.com/your-username/snapnest.git
-cd snapnest 
+git clone https://github.com/your-username/coinpulse.git
+cd coinpulse 
 ```
 #### 2️⃣ Install dependencies
 ```sh
 npm install
 ```
-#### 3️⃣ Set up environment variables
-```sh
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
-NEXT_PUBLIC_CLOUDINARY_API_KEY="<Your API Key>"
-CLOUDINARY_API_SECRET="<Your API Secret>"
-```
-#### 4️⃣ Start the development server
+#### 3️⃣ Start the development server
 ```sh
 npm run dev
 ```
-**SnapNest will now be running at**  (http://localhost:3000/) 🎉
+**CoinPulse will now be running at**  (http://localhost:3000/) 🎉
 
-### 📸 Using SnapNest
-To start using SnapNest, simply upload some images! The Upload button is located at the top right of the library page.
+### 📸 Using CoinPulse
 
-- After uploading, the images will appear in your gallery.
-- Click on an image to edit, enhance, or add creative effects.
-- Easily search and manage your media with tags and metadata.
+- 1️⃣ Track Crypto Prices – View live market data and historical trends.
+- 2️⃣ Switch Currencies – Convert values between USD, EUR, and INR.
+- 3️⃣ Analyze Market Trends – Use interactive charts to track price movements.

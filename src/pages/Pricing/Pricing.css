@@ -1,0 +1,147 @@
+/* src/pages/Pricing/Pricing.css */
+
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.price-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Highlight the popular card with a bright border */
+.price-card.popular {
+    background: rgba(0, 255, 163, 0.05); /* Slight green tint */
+    border-color: #00eaff; /* Cyan border */
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 163, 0.2);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #d400ff, #00eaff);
+    color: #1e1e2f;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.price-card h2 {
+    font-size: 28px;
+    color: #00eaff;
+    margin-bottom: 10px;
+}
+
+.price-card .price {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #00ffa3;
+}
+
+.price-card .features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.price-card .features-list li {
+    padding: 8px 0;
+    color: #f0f0f0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.price-card .features-list li:last-child {
+    border-bottom: none;
+}
+
+.price-card button {
+    /* Inherit base button styling */
+    width: 100%;
+    padding: 12px 0;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #00eaff;
+    border: 1px solid #00eaff;
+    transition: background 0.3s, color 0.3s;
+}
+
+.price-card button:hover {
+    background: #00eaff;
+    color: #12121f;
+}
+
+.price-card .popular-btn {
+    /* Use the bright gradient button style from home.css */
+    background: linear-gradient(135deg, #00eaff, #00ffa3, #e1c1ff, #d400ff);
+    color: #12121f;
+    border: none;
+}
+
+.price-card .popular-btn:hover {
+    background: linear-gradient(135deg, #d400ff, #e1c1ff, #00ffa3, #00eaff);
+    transform: scale(1.02);
+}
+
+.cta-link {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+.cta-link a {
+    color: #00eaff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.cta-link a:hover {
+    color: #00ffa3;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .pricing-container {
+        flex-wrap: wrap;
+    }
+
+    .price-card {
+        flex-basis: 45%;
+    }
+
+    .price-card.popular {
+        transform: scale(1.0); /* Remove scale effect on small screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .pricing-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .price-card {
+        flex-basis: 90%;
+        max-width: 90%;
+    }
+}

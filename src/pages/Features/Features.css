@@ -1,0 +1,30 @@
+/* src/pages/Features/Features.css */
+
+/* Since we are reusing .home and .hero from home.css, 
+   we only need styles specific to the feature list layout. */
+
+.features-list {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05); /* Soft background similar to table */
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-item {
+    font-size: 16px;
+    color: #f0f0f0;
+    line-height: 1.5;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.feature-item:last-child {
+    border-bottom: none;
+}

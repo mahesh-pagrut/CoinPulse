@@ -18,14 +18,31 @@ export const Home = () => {
     // State to track the search input value
     const [input, setInput] = useState("");
 
+    // State to track the filtered suggestions for the custom panel
+    const [suggestions, setSuggestions] = useState([]);
+
     /**
      * Handles input change in search bar
-     * Updates input state and resets displayCoin if input is cleared
+     * Updates input state, resets displayCoin if input is cleared, 
+     * and generates suggestions.
      */
     const inputHandler = (event) => {
-        setInput(event.target.value);
-        if (event.target.value === "") {
+        const value = event.target.value;
+        setInput(value);
+
+        if (value === "") {
             setDisplayCoin(allCoin); // Reset table if input is empty
+            setSuggestions([]); // Clear suggestions
+        } else {
+            // Generate suggestions from allCoin based on current input
+            const filteredSuggestions = allCoin
+                .filter((item) =>
+                    item.name.toLowerCase().includes(value.toLowerCase()) ||
+                    item.symbol.toLowerCase().includes(value.toLowerCase())
+                )
+                // Removed .slice(0, 5) to show all suggestions
+                .slice(0, 10); // Limiting to top 10 to prevent excessively long lists
+            setSuggestions(filteredSuggestions);
         }
     };
 
@@ -36,10 +53,28 @@ export const Home = () => {
     const searchHandler = async (event) => {
         event.preventDefault();
 
-        const coins = allCoin.filter((item) => 
+        // Use the coins array logic from the previous input handler for filtering
+        const coins = allCoin.filter((item) =>
             item.name.toLowerCase().includes(input.toLowerCase())
         );
 
+        setDisplayCoin(coins);
+        setSuggestions([]); // Hide suggestions after search
+        // Keep input value for search results context
+    };
+
+    /**
+     * Handles clicking a suggestion item
+     * Sets the input field to the selected coin name, hides suggestions, and performs the search
+     */
+    const selectSuggestion = (coinName) => {
+        setInput(coinName);
+        setSuggestions([]); // Hide suggestions
+
+        // Immediately filter the main table with the selected coin
+        const coins = allCoin.filter((item) =>
+            item.name.toLowerCase() === coinName.toLowerCase()
+        );
         setDisplayCoin(coins);
     };
 
@@ -57,27 +92,37 @@ export const Home = () => {
             <div className='hero'>
                 <h1>Largest <br />Crypto Marketplace</h1>
                 <p>
-                    Welcome to the world's largest cryptocurrency marketplace. 
+                    Welcome to the world's largest cryptocurrency marketplace.
                     Sign up to explore more about cryptos.
                 </p>
 
                 {/* Search form */}
                 <form onSubmit={searchHandler}>
-                    <input 
-                        onChange={inputHandler} 
-                        list='coinlist' 
-                        value={input} 
-                        type="text" 
-                        placeholder='Search crypto...' 
-                        required
-                    />
+                    {/* Container for Search Input and Custom Suggestions Panel */}
+                    <div className='search-input-container'>
+                        <input
+                            onChange={inputHandler}
+                            value={input}
+                            type="text"
+                            placeholder='Search crypto...'
+                            autoComplete='off' // Disable native browser autocomplete
+                        />
 
-                    {/* Datalist for search suggestions */}
-                    <datalist id="coinlist">
-                        {allCoin.map((item, index) => (
-                            <option key={index} value={item.name} />
-                        ))}
-                    </datalist>
+                        {/* Custom Suggestions Panel (Conditional Rendering) */}
+                        {suggestions.length > 0 && (
+                            <ul className='suggestions-panel'>
+                                {suggestions.map((item, index) => (
+                                    <li 
+                                        key={index} 
+                                        onClick={() => selectSuggestion(item.name)}
+                                    >
+                                        <img src={item.image} alt={item.symbol} />
+                                        <p>{item.name} - {item.symbol.toUpperCase()}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
 
                     <button type='submit'>Search</button>
                 </form>

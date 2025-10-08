@@ -1,10 +1,9 @@
-/* Navbar */
+/* Navbar Container */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 10%;
-    /* ORIGINAL STYLES PRESERVED */
     background: rgba(255, 255, 255, 0.1); 
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
@@ -22,18 +21,15 @@
     background: linear-gradient(135deg, #00eaff, #00ffee, #f7eeff, #fb1aff);
     background-clip: text;
     -webkit-background-clip: text;
-    color: transparent; 
-    transition: 0.3s ease-in-out;
+    color: transparent;
 }
 
-/* Crypto Icon */
 .logo {
-    width: 40px; 
+    width: 40px;
     height: auto;
-    transition: width 0.3s ease-in-out; 
 }
 
-/* Navbar Links Container (Desktop) */
+/* Navigation Links */
 .nav-links {
     display: flex;
     gap: 40px;
@@ -42,82 +38,80 @@
     padding: 0;
 }
 
-/* List Item Container */
 .nav-links li {
     margin: 0;
     padding: 0;
-    position: relative;
-    cursor: pointer;
 }
 
-/* Default Link Styling (applied via NavLink class 'nav-link') */
-.nav-link, .active-nav-link {
+/* Link Styling */
+.nav-link {
     font-weight: 500;
     font-size: 16px;
-    color: #e0e0e0; /* Default text color */
+    color: #e0e0e0;
     text-decoration: none;
-    transition: 0.3s ease-in-out;
-    display: inline-block;
     position: relative;
     padding: 5px 0;
+    display: inline-block;
 }
 
-/* 🏆 ACTIVE STATE: Apply Gradient Color to Text */
+/* Active Link */
 .active-nav-link {
     font-weight: 600;
-    /* Use the existing button gradient for the active text color */
+    font-size: 16px;
     background: linear-gradient(135deg, #00eaff, #00ffa3, #e1c1ff, #d400ff);
     background-clip: text;
     -webkit-background-clip: text;
-    color: transparent; 
+    color: transparent;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+    display: inline-block;
 }
 
-/* Underline Animation (using ::after on the NavLink) */
-.nav-link::after, .active-nav-link::after {
+/* Underline Animation */
+.nav-link::after {
     content: "";
     position: absolute;
     height: 2px;
+    width: 0;
     background: linear-gradient(135deg, #00eaff, #00ffa3, #e1c1ff, #d400ff);
-    left: 50%;
+    left: 0;
     bottom: -5px;
-    transition: 0.3s ease-in-out;
-    transform: translateX(-50%);
+    transition: width 0.25s ease-in-out;
 }
 
-.nav-link::after {
-    width: 0%; /* Start at 0 width for inactive links */
-}
-
-/* Hover for INACTIVE links */
 .nav-link:hover::after {
     width: 100%;
 }
 
-/* Permanent underline for ACTIVE link */
 .active-nav-link::after {
-    width: 100%; /* Full width underline permanently */
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(135deg, #00eaff, #00ffa3, #e1c1ff, #d400ff);
     left: 0;
-    transform: translateX(0);
+    bottom: -5px;
+    transition: none;
 }
 
 /* Right Section */
 .nav-right {
     display: flex;
     align-items: center;
-    gap: max(1vw, 12px);
-    position: relative; 
+    gap: 15px;
 }
 
-/* Dropdown (Currency) - ORIGINAL STYLES PRESERVED */
+/* Currency Dropdown */
 .navbar select {
-    padding: 5px 10px;
+    padding: 8px 12px;
     border-radius: 6px;
     border: 2px solid rgba(255, 255, 255, 0.4);
     background: transparent;
     color: white;
     font-size: 14px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: border-color 0.3s;
 }
 
 .navbar select:hover {
@@ -129,268 +123,171 @@
     color: white;
 }
 
-/* Button (Login/Logout/Signup - uses the same styles as original 'Sign Up') */
-.navbar button:not(.menu-toggle):not(.profile-icon-button) {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 25px;
-    border-radius: 20px;
+/* Auth Button */
+.auth-btn {
+    padding: 8px 20px;
+    border-radius: 6px;
     font-size: 15px;
     font-weight: 500;
-    color: #12121f;
-    background: linear-gradient(135deg, #00eaff, #00ffa3, #e1c1ff, #d400ff);
-    border: none;
+    color: white;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.4);
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
 
-.navbar button:not(.menu-toggle):not(.profile-icon-button):hover {
-    background: linear-gradient(135deg, #d400ff, #e1c1ff, #00ffa3, #00eaff);
+.auth-btn:hover {
     transform: scale(1.05);
+    border-color: #00eaff;
 }
 
-/* 👤 User Profile Dropdown Styling */
+/* Profile Container */
 .profile-container {
     position: relative;
-    display: flex;
-    align-items: center;
-    height: 40px;
 }
 
-.profile-icon-button {
-    background: none;
-    border: none;
+/* Profile Icon */
+.profile-icon {
     cursor: pointer;
-    padding: 0;
-    margin: 0;
-    display: block;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s;
 }
 
-.profile-icon-button:hover {
+.profile-icon:hover {
     transform: scale(1.1);
 }
 
+/* Profile Dropdown */
 .profile-dropdown {
     position: absolute;
-    top: 50px; 
+    top: 45px;
     right: 0;
-    background: #1e1e2f; 
+    background: #1e1e2f;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     min-width: 150px;
-    display: flex;
-    flex-direction: column;
-    z-index: 900;
-    overflow: hidden;
+    z-index: 1001;
 }
 
-.profile-dropdown a, .dropdown-logout-btn {
+.profile-dropdown a,
+.profile-dropdown button {
+    display: block;
+    width: 100%;
     padding: 12px 16px;
-    color: #fff; /* White text for profile links */
+    color: #fff;
     text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-    font-size: 15px;
     text-align: left;
     background: none;
     border: none;
+    font-size: 15px;
     cursor: pointer;
-    width: 100%;
+    transition: 0.2s;
 }
 
-.profile-dropdown a:hover, .dropdown-logout-btn:hover {
-    background: rgba(0, 255, 163, 0.1); 
+.profile-dropdown a:hover,
+.profile-dropdown button:hover {
+    background: rgba(0, 255, 163, 0.1);
     color: #00eaff;
 }
 
-.dropdown-logout-btn {
-    color: #ff5555; 
+.logout-btn {
+    color: #ff5555 !important;
     font-weight: 500;
 }
 
-/* Hide/Show Auth Sections based on screen size */
-.mobile-auth-placeholder {
-    display: none; 
-}
-.desktop-auth-section {
-    display: block; 
+/* Hide mobile auth on desktop */
+.mobile-auth {
+    display: none;
 }
 
-
-/* ☰ Hamburger Menu Toggle (minimal style) */
+/* Hamburger Menu */
 .menu-toggle {
-    display: none; 
-    color: #fff;
+    display: none;
     background: none;
     border: none;
+    color: #00eaff;
     cursor: pointer;
-    padding: 5px;
-    margin-left: 15px;
+    font-size: 24px;
+    z-index: 1002;
 }
 
 /* Responsive Design */
-
-/* Tablets and Mobile (<= 900px) */
 @media (max-width: 900px) {
-    .navbar {
-        padding: 20px 8%; 
-    }
-
-    /* 1. Logo Size Reduction */
-    .logo {
-        width: 30px; 
-    }
-    
-    .nav-links {
-        display: none;
-    }
-    
-    .menu-toggle {
-        display: block; 
-        color: #00eaff; /* Ensure the X button (when open) is highly visible */
-        z-index: 10000; /* Ensure the toggle is on top of the overlay */
-    }
-    
-    /* 1. Overlay for clicking outside (CLOSES MENU) */
-    .mobile-menu-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7); /* Slightly darker blackout */
-        z-index: 9990; /* High Z-index */
-    }
-
-    /* 2. Mobile Menu Sidebar/Dropdown from Right (Slide-in) */
-    .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 60px; /* NEW: Start below the fixed navbar */
-        right: 0; /* Align to the right */
-        width: min(60%, 250px); /* Small size, max 250px */
-        max-height: calc(100vh - 60px); /* NEW: Max height is remaining viewport */
-        
-        /* Glassmorphism background for the slide-in menu */
-        background: rgba(18, 18, 31, 0.98); 
-        border-left: 2px solid rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(15px);
-        
-        padding: 20px; /* NEW: Cleaned up padding, relies on 'top' for vertical offset */
-        text-align: left; 
-        z-index: 9999; /* HIGHEST Z-INDEX */
-        overflow-y: auto; 
-        
-        /* Slide transition properties */
-        transform: translateX(0);
-        transition: transform 0.3s ease-out;
-    }
-    
-    /* Initial state (off-screen) when menu is not open */
-    .nav-links:not(.open) {
-        transform: translateX(100%);
-    }
-
-    
-    .nav-links li {
-        margin: 5px 0; /* REDUCED SPACING: Tighter vertical gap */
-    }
-    
-    /* 3. Smaller Link Text */
-    .nav-link, .active-nav-link {
-        font-size: 16px; /* Reduced link text size */
-    }
-    
-    /* Show the auth components inside the mobile menu */
-    .mobile-auth-placeholder {
-        display: list-item; 
-        margin-top: 20px; /* Reduced margin */
-    }
-    
-    /* Hide the desktop auth components */
-    .desktop-auth-section {
-        display: none;
-    }
-    
-    /* Adjust profile dropdown when it's inside the mobile menu */
-    .profile-container {
-        display: block;
-        margin: 0; 
-        text-align: left;
-    }
-    
-    .profile-icon-button { 
-        display: inline-block; 
-        margin-left: 0;
-    }
-    
-    /* FIX: Dropdown styling inside the mobile sidebar */
-    .profile-dropdown {
-        position: static; 
-        margin: 10px 0 0; /* Reduced top margin */
-        padding: 0;
-        max-width: none;
-        box-shadow: none;
-        border: none; /* Removed border inside the sidebar */
-        background: transparent; /* Transparent background */
-        border-radius: 0;
-    }
-    
-    .profile-dropdown a, .dropdown-logout-btn {
-        padding: 8px 10px; /* Smaller padding for a cleaner list look */
-        font-size: 14px; /* Smaller text size */
-    }
-}
-/* ORIGINAL MEDIA QUERIES PRESERVED BELOW */
-
-/* Large Screens (Desktops) */
-@media (min-width: 1200px) {
-    .navbar {
-        padding: 20px 12%;
-    }
-
-    .navbar ul {
-        gap: 50px;
-    }
-
-    .navbar button {
-        padding: 12px 30px;
-        font-size: 16px;
-    }
-}
-
-/* Small Screens (Mobile) */
-@media (max-width: 768px) {
     .navbar {
         padding: 15px 5%;
     }
 
-    .nav-right {
-        flex-direction: row;
-        gap: 8px;
+    .logo {
+        width: 30px;
     }
 
-    .navbar button {
-        font-size: 14px;
-        padding: 6px 15px;
+    .brand {
+        font-size: 22px;
+    }
+
+    /* Show mobile auth, hide desktop */
+    .mobile-auth {
+        display: block;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .desktop-auth {
+        display: none;
+    }
+
+    /* Mobile Nav Links */
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 250px;
+        max-height: calc(100vh - 70px);
+        flex-direction: column;
+        gap: 0;
+        background: rgba(18, 18, 31, 0.98);
+        backdrop-filter: blur(15px);
+        border-left: 2px solid rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+        overflow-y: auto;
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    /* Show hamburger menu */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hide currency selector on mobile */
+    .navbar select {
+        display: none;
     }
 }
 
-/* Mobile with Hamburger Menu */
 @media (max-width: 600px) {
     .navbar {
-        padding: 10px 5%;
+        padding: 12px 5%;
     }
 
     .brand {
         font-size: 18px;
     }
 
-    .navbar button {
-        font-size: 13px;
-        padding: 5px 12px;
+    .logo {
+        width: 28px;
+    }
+
+    .nav-links {
+        width: 200px;
     }
 }

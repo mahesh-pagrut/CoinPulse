@@ -22,6 +22,9 @@ body {
     align-items: center;
     text-align: center;
     gap: 30px;
+    /* Ensuring the entire hero section is beneath high z-index elements like modals */
+    /* Removed position: relative; and setting a very low z-index for the section */
+    z-index: 1; 
 }
 
 .hero h1 {
@@ -35,7 +38,7 @@ body {
     line-height: 1.6;
 }
 
-/* Search Box */
+/* Search Box (Form Container) */
 .hero form {
     padding: 10px;
     width: 80%;
@@ -50,6 +53,14 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Container for Search Input and Custom Suggestions Panel */
+.search-input-container {
+    flex: 1; 
+    position: relative; /* Essential for positioning the suggestion panel */
+    display: flex; /* Ensures input takes up the space */
+    z-index: 1; 
+}
+
 .hero input {
     flex: 1;
     font-size: 16px;
@@ -58,10 +69,57 @@ body {
     padding-left: 10px;
     background: transparent;
     color: #ffffff;
+    width: 100%; 
+    /* MODIFIED: Reduced z-index to be low relative to the navbar modal */
+    z-index: 1; 
 }
 
 .hero input::placeholder {
     color: #bfbfbf;
+}
+
+/* Custom Suggestions Panel Styling */
+.suggestions-panel {
+    /* Positioning */
+    position: absolute;
+    top: calc(100% + 2px); /* 2px gap below the search container */
+    left: -10px; /* Aligns with the form's left edge (10px padding of form) */
+    width: calc(100% + 10px); /* Makes the panel width match the form's input area width (correcting previous error) */
+    
+    /* Appearance */
+    list-style: none;
+    padding: 5px 0;
+    margin: 0; 
+    background: #1e1e2f; 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* MODIFIED: Reduced z-index to be low relative to the navbar modal */
+    z-index: 1; 
+}
+
+/* Styling for individual suggestion items */
+.suggestions-panel li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    /* LOW OPACITY initially */
+    opacity: 0.6;
+}
+
+/* FULL OPACITY on hover */
+.suggestions-panel li:hover {
+    background: rgba(255, 255, 255, 0.15); /* Highlight on hover */
+    opacity: 1;
+}
+
+.suggestions-panel li img {
+    width: 20px;
+    height: 20px;
 }
 
 /* Stylish Button */
@@ -80,7 +138,7 @@ body {
 
 .hero button:hover {
     background: linear-gradient(135deg, #d400ff, #e1c1ff, #00ffa3, #00eaff);
-     /* background: linear-gradient(135deg, #ff2e63, #ff8c00); */
+      /* background: linear-gradient(135deg, #ff2e63, #ff8c00); */
     transform: scale(1.01);
 }
 
@@ -163,7 +221,8 @@ body {
         font-size: 13px;
     }
 
-    .hero form input {
+    /* Adjusted this selector to target the input inside the new container */
+    .hero form .search-input-container input {
         width: 100px;
     }
 }
